@@ -1,54 +1,56 @@
-const path = require("path");
+const express = require('express')
+const app = express()
+const path = require('path')
+const hbs = require('hbs')
+const collection=require('./mongodb')
+const bcrypt = require('bcrypt')
+const templatePath=path.join(__dirname,'templates')
+const publicPath=path.join(__dirname, 'public')
 
-// Require the fastify framework and instantiate it
-const fastify = require("fastify")({
-  // set this to true for detailed logging:
-  logger: false,
-});
+app.use(express.static(publicPath))
+app.set("view engine","hbs")
+app.set("views",templatePath)
+app.use(express.urlencoded({extended:false}))
 
-// Setup our static files
-fastify.register(require("@fastify/static"), {
-  root: path.join(__dirname, "public"),
-  prefix: "/", // optional: default '/'
-});
+app.get("/",(req, res)=>{
+    res.render("login");
+})
 
-// fastify-formbody lets us parse incoming forms
-fastify.register(require("@fastify/formbody"));
+app.get("/signup",(req, res)=>{
+    res.render("signup");
+})
 
-// point-of-view is a templating manager for fastify
-fastify.register(require("@fastify/view"), {
-  engine: {
-    handlebars: require("handlebars"),
-  },
-});
+app.post("/signup",async (req,res)=>{
 
-// Our main GET home page route, pulls from src/pages/index.hbs
-fastify.get("/", function (request, reply) {
-  // params is an object we'll pass to our handlebars template
-  let params = {
-    greeting: "Hello Node!",
-  };
-  // request.query.paramName <-- a querystring example
-  return reply.view("/src/pages/index.hbs", params);
-});
-
-// A POST route to handle form submissions
-fastify.post("/", function (request, reply) {
-  let params = {
-    greeting: "Hello Form!",
-  };
-  // request.body.paramName <-- a form post example
-  return reply.view("/src/pages/index.hbs", params);
-});
-
-// Run the server and report out to the logs
-fastify.listen(
-  { port: process.env.PORT, host: "0.0.0.0" },
-  function (err, address) {
-    if (err) {
-      console.error(err);
-      process.exit(1);
+    const data={
+        name:req.body.name,
+        password: await bcrypt.hash(req.body.password, 10)
     }
-    console.log(`Your app is listening on ${address}`);
-  }
-);
+
+    await collection.insertMany([data])
+
+    res.render("home")
+
+})
+
+app.post("/login",async (req,res)=>{
+
+    try{
+        const user=await collection.findOne({name:req.body.name})
+
+        if(user && await bcrypt.compare(req.body.password, user.password)){
+            res.render("home")
+        }
+        else{
+            res.status(400).render("login",{ errorMessage: "Špatné heslo" })
+        }
+    }
+    catch{
+        res.status(400).render("login", { errorMessage: "Špatné údaje" })
+    }
+
+})
+
+app.listen(3000,() => {
+    console.log('WEB IS LIVE!');
+})
