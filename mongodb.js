@@ -1,6 +1,6 @@
 const mongoose=require('mongoose')
 
-mongoose.connect("mongodb://localhost:27017/helpdesk")
+mongoose.connect("mongodb+srv://simvesely:<password>@cluster0.wg2ime2.mongodb.net/?retryWrites=true&w=majority")
 .then(()=>{
     console.log("MongoDB connected")
 })
