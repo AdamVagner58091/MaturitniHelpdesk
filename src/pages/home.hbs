@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/home.css">
+    <link rel="icon" type="image/jpeg" href="/images/ikona.png">
+    <title>Helpdesk</title>
+</head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KB2MY6C63D"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-KB2MY6C63D');
+</script>
+
+<body>
+    <header>
+        <h1>Maturitní Helpdesk</h1>
+        <div class="nav-container">
+            <div id="predmetyButton" onclick="togglePanel('menupredmety')">Předměty</div>
+            <div id="podporaButton" onclick="togglePanel('menupodpora')">Podpora</div>
+            <a id="prihlaseniButton" href="/">Odhlásit se</a>
+
+        </div>
+    </header>
+
+    <div class="button-container">
+        <a href="SWA/page1.html" class="button">Software a webové aplikace</a>
+        <a href="POG/page2.html" class="button">Počítačová grafika</a>
+        <a href="POS/page3.html" class="button">Počítačové sítě</a>
+        <a href="PRG/page4.html" class="button">Programování</a>
+    </div>
+
+    <div class="panel" id="menupredmety">
+        <a href="SWA/page1.html">Software a webové aplikace</a>
+        <a href="POG/page2.html">Počítačová grafika</a>
+        <a href="POS/page3.html">Počítačové sítě</a>
+        <a href="PRG/page4.html">Programování</a>
+    </div>
+
+    <div class="panel" id="menupodpora">
+        <a href="FORUM/forum.html">Forum</a>
+        <a href="AKTUALITY/aktuality.html">Aktuality</a>
+        <a href="PSYCHO/PSYCHO.html">Psychologická poradna</a>
+        <a href="JKNAMT/jknamt.html">Jak na maturitu</a>
+        <a href="KONTAKTY/kontakty.html">Kontakty</a>
+        <a href="CDOTAZY/cdotazy.html">Časté otázky</a>
+    </div>
+
+    <div class="panel" id="menuprihlaseni">
+        <!-- Přihlášení -->
+    </div>
+
+    <footer>
+        <p>Simon Veselý, Adam Vágner - IT4B</p>
+        <p>Visitor Count: <?php include 'counter.php'; ?></p>
+    </footer>
+
+    <script src="/scripts/script.js"></script>
+</body>
+</html>

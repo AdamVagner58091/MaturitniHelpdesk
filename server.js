@@ -5,7 +5,7 @@ const path = require('path')
 const PORT = process.env.PORT || 3000;
 const hbs = require('hbs');
 const bcrypt = require('bcrypt');
-const templatePath=path.join(__dirname,'src')
+const templatePath=path.join(__dirname,'src','pages')
 const publicPath=path.join(__dirname, 'public')
 
 app.use(express.static(publicPath))

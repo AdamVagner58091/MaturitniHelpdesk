@@ -1,4 +1,4 @@
-/*
+
 const mongoose=require('mongoose')
 
 mongoose.connect("mongodb+srv://simvesely:xaghoc-fyscop-1neNki@cluster0.wg2ime2.mongodb.net/helpdesk", {
@@ -27,8 +27,8 @@ const LogInSchema=new mongoose.Schema({
 const collection=new mongoose.model("Collection1", LogInSchema)
 
 module.exports=collection 
-*/
 
+/*
 const { MongoClient, ServerApiVersion } = require('mongodb');
 const uri = "mongodb+srv://simvesely:xaghoc-fyscop-1neNki@cluster0.wg2ime2.mongodb.net/?retryWrites=true&w=majority";
 
@@ -54,3 +54,4 @@ async function run() {
   }
 }
 run().catch(console.dir);
+*/
