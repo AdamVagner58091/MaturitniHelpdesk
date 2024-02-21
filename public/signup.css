@@ -18,6 +18,9 @@ body {
     background-image: url("https://cdn.glitch.global/99ded2f5-70f6-473e-9ae1-c04ef66901dc/main.jpg?v=1708512120963");
     background-size: cover;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  
+  backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(30px);
 }
 
 form {
@@ -29,6 +32,7 @@ form {
 }
 
 h2 {
+  text-align: center;
     color: #fff;
 }
 
@@ -53,7 +57,6 @@ input[type="submit"]:hover {
 
 /* Optional: Add some spacing to the top of the form */
 form {
-     
     display: flex;
     flex-direction: column;
 }
