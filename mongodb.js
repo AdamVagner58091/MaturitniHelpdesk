@@ -1,28 +1,35 @@
-const mongoose=require('mongoose')
+const mongoose = require('mongoose');
 
-mongoose.connect("mongodb+srv://simvesely:xaghoc-fyscop-1neNki@cluster0.wg2ime2.mongodb.net/?retryWrites=true&w=majority")
-.then(()=>{
-    console.log("MongoDB connected")
+// Update the connection string with your MongoDB Atlas credentials and database name
+const atlasConnectionString = "mongodb+srv://simvesely:xaghoc-fyscop-1neNki@cluster0.wg2ime2.mongodb.net/helpdesk?retryWrites=true&w=majority";
+
+mongoose.connect(atlasConnectionString, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
 })
-.catch((error)=>{
-    console.error("MongoDB Failed: ", error.message)
-})
+  .then(() => {
+    console.log("MongoDB connected");
+  })
+  .catch((error) => {
+    console.error("MongoDB Failed: ", error.message);
+  });
 
-const LogInSchema=new mongoose.Schema({
-    name:{
-        type:String,
-        require:true
-    },
-    password:{
-        type:String,
-        require:true
-    }
+const LogInSchema = new mongoose.Schema({
+  name: {
+    type: String,
+    required: true
+  },
+  password: {
+    type: String,
+    required: true
+  }
+});
 
-})
+// Update the model name to match your collection in MongoDB Atlas
+const collection = mongoose.model("collection1", LogInSchema);
 
-const collection=new mongoose.model("Collection1", LogInSchema)
+module.exports = collection;
 
-module.exports=collection
 /*
 const { MongoClient, ServerApiVersion } = require('mongodb');
 const uri = "mongodb+srv://simvesely:xaghoc-fyscop-1neNki@cluster0.wg2ime2.mongodb.net/?retryWrites=true&w=majority";
