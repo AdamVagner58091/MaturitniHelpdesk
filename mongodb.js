@@ -1,16 +1,12 @@
-
 const mongoose=require('mongoose')
 
-mongoose.connect("mongodb+srv://simvesely:xaghoc-fyscop-1neNki@cluster0.wg2ime2.mongodb.net/helpdesk", {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
+mongoose.connect("mongodb+srv://simvesely:xaghoc-fyscop-1neNki@cluster0.wg2ime2.mongodb.net/?retryWrites=true&w=majority")
+.then(()=>{
+    console.log("MongoDB connected")
 })
-.then(() => {
-    console.log("MongoDB connected");
+.catch((error)=>{
+    console.error("MongoDB Failed: ", error.message)
 })
-.catch((error) => {
-    console.error("MongoDB connection failed: ", error.message);
-});
 
 const LogInSchema=new mongoose.Schema({
     name:{
@@ -26,8 +22,7 @@ const LogInSchema=new mongoose.Schema({
 
 const collection=new mongoose.model("Collection1", LogInSchema)
 
-module.exports=collection 
-
+module.exports=collection
 /*
 const { MongoClient, ServerApiVersion } = require('mongodb');
 const uri = "mongodb+srv://simvesely:xaghoc-fyscop-1neNki@cluster0.wg2ime2.mongodb.net/?retryWrites=true&w=majority";
@@ -53,5 +48,4 @@ async function run() {
     await client.close();
   }
 }
-run().catch(console.dir);
-*/
+run().catch(console.dir);*/
