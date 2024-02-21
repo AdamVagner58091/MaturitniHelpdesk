@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const collection=require('./mongodb')
 const path = require('path')
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 4000;
 const hbs = require('hbs');
 const bcrypt = require('bcrypt');
 const templatePath=path.join(__dirname,'src','pages')
@@ -30,7 +30,7 @@ app.post("/signup",async (req,res)=>{
 
     await collection.insertMany([data])
 
-    res.render("index")
+    res.render("home")
 
 })
 
@@ -40,10 +40,10 @@ app.post("/login",async (req,res)=>{
         const user=await collection.findOne({name:req.body.name})
 
         if(user && await bcrypt.compare(req.body.password, user.password)){
-            res.render("index")
+            res.render("home")
         }
         else{
-            res.status(400).render("login.hbs",{ errorMessage: "Špatné heslo" })
+            res.status(400).render("login",{ errorMessage: "Špatné heslo" })
         }
     }
     catch{
