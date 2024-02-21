@@ -199,7 +199,7 @@ footer {
     margin: 10px 0;
 }
 
-#predmetyButton {
+/*#predmetyButton {
     padding: 10px 15px;
     font-size: 16px;
     font-weight: bold;
@@ -243,9 +243,9 @@ footer {
     font-size: 16px;
     font-weight: bold;
     background-color: #006115; /* Nová barva pro tlačítko přihlášení */
-    color: #fff;
+    /*color: #fff;
     border: 2px solid #000000; /* Barevný odstín pro ohraničení */
-    border-radius: 5px;
+    /*border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s, color 0.3s;
 }
@@ -254,4 +254,37 @@ footer {
     background-color: #fff;
     border-color: #fff;
     color: #000000;
+}
+
+
+
+
+
+
+
+.dropdown {
+    position: relative;
+}
+
+.dropdown:hover .panel {
+    display: block;
+}
+
+.nav-container span {
+    margin-right: 20px;
+    padding: 10px 15px;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: #fff;
+    color: #000;
+    border: 2px solid #000;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.nav-container span:hover {
+    background-color: #000;
+    color: #fff;
+    border-color: #fff;
 }
