@@ -1,12 +1,15 @@
 const mongoose=require('mongoose')
 
-mongoose.connect("mongodb+srv://simvesely:xaghoc-fyscop-1neNki@cluster0.wg2ime2.mongodb.net/?retryWrites=true&w=majority")
-.then(()=>{
-    console.log("MongoDB connected")
+mongoose.connect("mongodb+srv://simvesely:xaghoc-fyscop-1neNki@cluster0.wg2ime2.mongodb.net/your-database-name", {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
 })
-.catch((error)=>{
-    console.error("MongoDB Failed: ", error.message)
+.then(() => {
+    console.log("MongoDB connected");
 })
+.catch((error) => {
+    console.error("MongoDB connection failed: ", error.message);
+});
 
 const LogInSchema=new mongoose.Schema({
     name:{
