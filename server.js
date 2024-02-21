@@ -70,82 +70,126 @@ const express = require('express');
 const app = express();
 const collection = require('./mongodb');
 const path = require('path');
-const session = require('express-session'); // Import express-session
+const PORT = process.env.PORT || 4000;
+const hbs = require('hbs');
 const bcrypt = require('bcrypt');
-const templatePath = path.join(__dirname, 'src', 'pages');
-const publicPath = path.join(__dirname, 'public');
+const session = require('express-session');
+const passport = require('passport');
+const LocalStrategy = require('passport-local').Strategy;
 
-// Middleware to update visitor count
+// VISITOR COUNT
 let visitorCount = 0;
+
 const updateVisitorCount = () => {
     visitorCount += 1;
     return visitorCount;
 };
 
-// Middleware to check if user is authenticated
-const isAuthenticated = (req, res, next) => {
-    if (req.session && req.session.isAuthenticated) {
-        return next();
-    } else {
-        res.redirect('/login');
-    }
-};
-
-app.use(session({
-    secret: 'your-secret-key',
-    resave: false,
-    saveUninitialized: true,
-}));
-
-app.use(express.static(publicPath));
+// Middleware setup
+app.use(express.static(path.join(__dirname, 'public')));
 app.set('view engine', 'hbs');
-app.set('views', templatePath);
+app.set('views', path.join(__dirname, 'src', 'pages'));
 app.use(express.urlencoded({ extended: false }));
 
+// Express session setup
+app.use(session({
+    secret: 'your-secret-key', // Replace with a secure secret
+    resave: false,
+    saveUninitialized: false
+}));
+
+// Passport setup
+app.use(passport.initialize());
+app.use(passport.session());
+
+// Passport local strategy for user authentication
+passport.use(new LocalStrategy(
+    async (username, password, done) => {
+        try {
+            const user = await collection.findOne({ name: username });
+
+            if (user && await bcrypt.compare(password, user.password)) {
+                return done(null, user);
+            } else {
+                return done(null, false, { message: 'Incorrect username or password' });
+            }
+        } catch (error) {
+            return done(error);
+        }
+    }
+));
+
+// Passport serialization and deserialization
+passport.serializeUser((user, done) => {
+    done(null, user._id);
+});
+
+passport.deserializeUser(async (id, done) => {
+    try {
+        const user = await collection.findOne({ _id: id });
+        done(null, user);
+    } catch (error) {
+        done(error);
+    }
+});
+
+// Routes
 app.get('/', (req, res) => {
-    res.render('login');
+    res.render('login', { user: req.user });
 });
 
 app.get('/signup', (req, res) => {
-    res.render('signup');
+    res.render('signup', { user: req.user });
 });
 
 app.post('/signup', async (req, res) => {
     const data = {
         name: req.body.name,
-        password: await bcrypt.hash(req.body.password, 10),
+        password: await bcrypt.hash(req.body.password, 10)
     };
 
     await collection.insertMany([data]);
     const count = updateVisitorCount();
-    res.render('home', { visitorCount: count });
+    res.render('home', { visitorCount: count, user: req.user });
 });
 
-app.post('/login', async (req, res) => {
-    try {
-        const user = await collection.findOne({ name: req.body.name });
-
-        if (user && await bcrypt.compare(req.body.password, user.password)) {
-            req.session.isAuthenticated = true; // Set authentication status in session
-            const count = updateVisitorCount();
-            res.render('home', { visitorCount: count });
-        } else {
-            res.status(400).render('login', { errorMessage: 'Špatné heslo' });
+// Login route with manual authentication
+app.post('/login', (req, res, next) => {
+    passport.authenticate('local', (err, user, info) => {
+        if (err) {
+            return next(err);
         }
-    } catch {
-        res.status(400).render('login', { errorMessage: 'Špatné údaje' });
-    }
+        if (!user) {
+            return res.render('login', { errorMessage: info.message });
+        }
+        req.logIn(user, (err) => {
+            if (err) {
+                return next(err);
+            }
+            const count = updateVisitorCount();
+            return res.render('home', { visitorCount: count, user: req.user });
+        });
+    })(req, res, next);
 });
+
+// Custom middleware to check authentication
+const isAuthenticated = (req, res, next) => {
+    if (req.isAuthenticated()) {
+        return next();
+    }
+    res.redirect('/');
+};
 
 app.get('/home', isAuthenticated, (req, res) => {
     const count = updateVisitorCount();
-    res.render('home', { visitorCount: count });
+    res.render('home', { visitorCount: count, user: req.user });
 });
 
 app.get('/kontakty', isAuthenticated, (req, res) => {
-    res.render('kontakty');
+    const count = updateVisitorCount();
+    res.render('kontakty', { visitorCount: count, user: req.user });
 });
 
-app.listen(4000, () => {
-    console.log('Server is running on port 4000');
+app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
 });
