@@ -1,6 +1,6 @@
 @font-face {
     font-family: 'GothicFont';
-    src: url('../fonts/GOTHIC.TTF') format('truetype');
+    src: url("https://cdn.glitch.global/99ded2f5-70f6-473e-9ae1-c04ef66901dc/GOTHIC.TTF?v=1708511916059") format('truetype') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
