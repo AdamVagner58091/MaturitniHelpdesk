@@ -30,7 +30,7 @@ app.post("/signup",async (req,res)=>{
 
     await collection.insertMany([data])
 
-    res.render("home")
+    res.render("index")
 
 })
 
@@ -40,10 +40,10 @@ app.post("/login",async (req,res)=>{
         const user=await collection.findOne({name:req.body.name})
 
         if(user && await bcrypt.compare(req.body.password, user.password)){
-            res.render("/src/index")
+            res.render("index")
         }
         else{
-            res.status(400).render("/src/login",{ errorMessage: "Špatné heslo" })
+            res.status(400).render("login.hbs",{ errorMessage: "Špatné heslo" })
         }
     }
     catch{
