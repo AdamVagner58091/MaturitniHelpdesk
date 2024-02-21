@@ -8,17 +8,17 @@
   </head>
   <body>
         <div class="container">
-        <h2>Log in</h2>
+        <h2>Přihlášení</h2>
 
         <form action="/login" method="post">
 
-        <input type="text" name="name" placeHolder="Name">
-        <input type="password" name="password" placeHolder="Password">
+        <input type="text" name="name" placeHolder="Jméno">
+        <input type="password" name="password" placeHolder="Heslo">
 
 
 {{#if errorMessage}}
     <p class="error-message">{{errorMessage}}</p>
-    <p class="try-again-message">Please try again.</p>
+    <p class="try-again-message">Zkuste prosím znovu.</p>
 {{/if}}
 
         <input type="submit">
@@ -26,7 +26,7 @@
 
         </form>
 
-        <a href="/signup">Make a new account</a>
+        <a href="/signup">Nemáte účet? Vytvořte si ho zde.</a>
         </div>
   </body>
 </html>
