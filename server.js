@@ -40,10 +40,10 @@ app.post("/login",async (req,res)=>{
         const user=await collection.findOne({name:req.body.name})
 
         if(user && await bcrypt.compare(req.body.password, user.password)){
-            res.render("home")
+            res.render("/src/index")
         }
         else{
-            res.status(400).render("login",{ errorMessage: "Špatné heslo" })
+            res.status(400).render("/src/login",{ errorMessage: "Špatné heslo" })
         }
     }
     catch{
