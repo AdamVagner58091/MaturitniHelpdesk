@@ -145,8 +145,8 @@ header {
 }
 
 .panel {
-    position: fixed;
-    top: 40px;
+    position: absolute;
+    top: 100%;
     right: 2px;
     background-color: #333;
     border: 2px solid #555;
@@ -156,7 +156,6 @@ header {
     flex-direction: column;
     z-index: 3;
 }
-
 .panel a {
     display: block;
     padding: 8px;
@@ -199,7 +198,7 @@ footer {
     margin: 10px 0;
 }
 
-/*#predmetyButton {
+#predmetyButton {
     padding: 10px 15px;
     font-size: 16px;
     font-weight: bold;
@@ -242,10 +241,10 @@ footer {
     padding: 10px 15px;
     font-size: 16px;
     font-weight: bold;
-    background-color: #006115; /* Nová barva pro tlačítko přihlášení */
-    /*color: #fff;
-    border: 2px solid #000000; /* Barevný odstín pro ohraničení */
-    /*border-radius: 5px;
+    background-color: #006115; 
+    color: #fff;
+    border: 2px solid #000000; 
+    border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s, color 0.3s;
 }
