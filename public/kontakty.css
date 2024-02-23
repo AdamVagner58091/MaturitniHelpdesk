@@ -1,3 +1,10 @@
+@font-face {
+    font-family: 'GothicFont';
+    src: url("https://cdn.glitch.global/99ded2f5-70f6-473e-9ae1-c04ef66901dc/GOTHIC.TTF?v=1708511916059") format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
 .contact-container {
     display: flex;
     flex-wrap: wrap;
@@ -46,13 +53,6 @@
     margin-bottom: 8px;
 }
 
-@font-face {
-    font-family: 'GothicFont';
-    src: url('../FONTS/GOTHIC.TTF') format('truetype'); /* Adjust the path accordingly */
-    font-weight: normal;
-    font-style: normal;
-}
-
 body {
     background-color: #1e1e1e;
     color: #fff;
@@ -64,7 +64,7 @@ body {
     align-items: center;
     justify-content: center;
     height: 100vh;
-    background-image: url('../IMAGES/main.jpg'); /* Add background image path */
+    background-image: url("https://cdn.glitch.global/99ded2f5-70f6-473e-9ae1-c04ef66901dc/main.jpg?v=1708512120963");
     background-size: cover; /* Ensure the background image covers the entire page */
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Add box-shadow for a subtle shadow effect */
 }
