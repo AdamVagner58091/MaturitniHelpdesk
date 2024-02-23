@@ -44,6 +44,10 @@ app.get("/home",(req, res)=>{
     res.render("home");
 })
 
+app.get("/prg",(req, res)=>{
+    res.render("prg");
+})
+
 app.post("/signup",async (req,res)=>{
 
     const data={
