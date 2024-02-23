@@ -35,6 +35,11 @@ app.get("/kontakty",(req, res)=>{
     res.render("kontakty");
 })
 
+app.get("/swa",(req, res)=>{
+    res.render("swa");
+})
+
+
 app.get("/home",(req, res)=>{
     res.render("home");
 })

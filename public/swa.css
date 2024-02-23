@@ -1,0 +1,130 @@
+@font-face {
+    font-family: 'GothicFont';
+    src: url("https://cdn.glitch.global/99ded2f5-70f6-473e-9ae1-c04ef66901dc/GOTHIC.TTF?v=1708511916059") format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    background-color: #111;
+    color: #222;
+    font-family: 'GothicFont', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-image: url("https://cdn.glitch.global/99ded2f5-70f6-473e-9ae1-c04ef66901dc/main.jpg?v=1708512120963");
+    background-size: cover;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.container {
+    width: 100%;
+    max-width: 1000px;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+    text-align: center;
+}
+
+h1 {
+    color: #3498db;
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    padding: 15px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+    font-family: 'Open Sans', sans-serif;
+}
+tr:hover {
+    background-color: #f9f9f9;
+}
+
+tr td {
+    cursor: pointer;
+}
+
+tr td:hover {
+    background-color: rgba(52, 152, 219, 0.2);
+}
+.header-container {
+    text-align: center;
+    position: fixed;
+    width: 100%;
+    top: 0;
+}
+
+.panel-header {
+    
+    float: left;
+    display: flex;
+}
+
+.panel-button {
+    margin-top: 15px; 
+    margin-right: 30px;
+    display: flex;
+    float: right;
+}
+
+h2 {
+    position: relative; /* Make the positioning relative for the pseudo-element */
+    top: 0;
+    color: #3498db;
+    font-size: 32px;
+    display: flex;
+    margin-left: 60px;
+    padding: 10px 15px;
+    margin: 10px;
+}
+
+h2::before {
+    content: ""; /* Add content to make the pseudo-element appear */
+    position: absolute; /* Position the pseudo-element absolutely */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(226,235,244, 0.9); /* Adjust the alpha (fourth) value as needed */
+    border-radius: 15px; /* Rounded corners */
+    filter: blur(2px); /* Adjust the blur radius as needed */
+    z-index: -1; /* Place the pseudo-element behind the text */
+}
+
+.panel-button a {
+    top: 0;
+    display: flex;
+    float: right;
+    margin-right: 60px;
+    font-weight: bold;
+    background-color: #3498db;
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+    margin: 10px;
+    border: 2px solid #fff;
+    border-radius: 5px;
+    transition: background-color 0.1s, color 0.1s;
+}
+
+.panel-button a:hover {
+    background-color: #fff;
+    color: #333;
+}
