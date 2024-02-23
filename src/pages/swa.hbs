@@ -14,14 +14,14 @@
             <h2>Maturitní Helpdesk</h2>
         </div>
         <div class="panel-button">
-            <a href="../index.html">Zpět na hlavní stránku</a>
+            <a href="/home">Zpět na hlavní stránku</a>
         </div>
     </div>
 
     <div class="container">
         <h1>Software a webové aplikace</h1>
         <table>
-            <tr onclick="openPDF('historie.pdf')">
+            <tr onclick="openPDF("https://cdn.glitch.global/99ded2f5-70f6-473e-9ae1-c04ef66901dc/PRG2_okruh1.pdf?v=1708691840871">
                 <td>Historie výpočetní techniky</td>
             </tr>
             <tr onclick="openPDF('hardware.pdf')">
@@ -66,6 +66,11 @@
         </table>
     </div>
 
-    <script src="page1_script.js"></script>
+    <script>
+    function openPDF(pdfFileName) {
+        const pdfPath = `${pdfFileName}`;
+        window.open(pdfPath, '_blank');
+    }
+</script>
 </body>
 </html>
