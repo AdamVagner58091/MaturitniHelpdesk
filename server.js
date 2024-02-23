@@ -48,6 +48,14 @@ app.get("/prg",(req, res)=>{
     res.render("prg");
 })
 
+app.get("/pos",(req, res)=>{
+    res.render("pos");
+})
+
+app.get("/pog",(req, res)=>{
+    res.render("pog");
+})
+
 app.post("/signup",async (req,res)=>{
 
     const data={

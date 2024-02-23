@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap">
+     <link rel="stylesheet" href="/pog.css">
+    <link rel="icon" type="image/jpeg" href="https://cdn.glitch.global/99ded2f5-70f6-473e-9ae1-c04ef66901dc/ikona.png?v=1708512114981">
+    <title>Počítačová grafika</title>
+</head>
+<body>
+     <div class="header-container">
+        <div class="panel-header">
+            <h2>Maturitní Helpdesk</h2>
+        </div>
+        <div class="panel-button">
+            <a href="/home">Zpět na hlavní stránku</a>
+        </div>
+    </div>
+
+    <div class="container">
+        <h1>Počítačová grafika</h1>
+        <table>
+            <tr onclick="openPDF('historie.pdf')">
+                <td>Vektorová grafika. Tvorba základních objektů. Barvy.</td>
+            </tr>
+            <tr onclick="openPDF('hardware.pdf')">
+                <td>Vektorová grafika. Úprava křivek, práce s textem.</td>
+            </tr>
+            <tr onclick="openPDF('historie.pdf')">
+                <td>Rastrová grafika. Tvorba základních objektů, výběry, barvy, cesty. Práce s textem.</td>
+            </tr>
+            <tr onclick="openPDF('hardware.pdf')">
+                <td>Rastrová grafika. Úprava fotografií.</td>
+            </tr>
+            <tr onclick="openPDF('historie.pdf')">
+                <td>Základní pojmy z počítačové grafiky.</td>
+            </tr>
+            <tr onclick="openPDF('hardware.pdf')">
+                <td>3D modelování v CAD programu.</td>
+            </tr>
+            <tr onclick="openPDF('historie.pdf')">
+                <td>Blender – tvorba modelů a 3D animace</td>
+            </tr>
+            <tr onclick="openPDF('hardware.pdf')">
+                <td>Úprava videa. Nahrávání, editace a export videa</td>
+            </tr>
+            <tr onclick="openPDF('historie.pdf')">
+                <td>Animovaná 2D grafika. Animace snímek po snímku, dopočítaná animace, zvuky.</td>
+            </tr>
+        </table>
+    </div>
+    <script>
+    function openPDF(pdfFileName) {
+        const pdfPath = `${pdfFileName}`;
+        window.open(pdfPath, '_blank');
+    }
+    </script>
+</body>
+</html>

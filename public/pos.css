@@ -16,7 +16,7 @@ body {
     align-items: center;
     justify-content: center;
     height: 100vh;
-    background-image: url('https://cdn.glitch.global/99ded2f5-70f6-473e-9ae1-c04ef66901dc/prg-stranka.jpg?v=1708692486947');
+    background-image: url('https://cdn.glitch.global/99ded2f5-70f6-473e-9ae1-c04ef66901dc/pos-stranka.jpg?v=1708512138239');
     background-size: cover;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
 }
@@ -35,7 +35,7 @@ body {
 }
 
 h1 {
-    color: rgb(21, 243, 51);
+    color: rgb(250, 219, 43);
     font-size: 32px;
     margin-bottom: 20px;
 }
@@ -86,7 +86,7 @@ tr td:hover {
 
 h2 {
     top: 0;
-    color: rgb(21, 243, 51);
+    color: rgb(250, 219, 43);
     font-size: 32px;
     display: flex;
     margin-left: 60px;
@@ -100,7 +100,7 @@ h2 {
     float: right;
     margin-right: 60px;
     font-weight: bold;
-    background-color: rgb(21, 243, 51);
+    background-color: rgb(250, 219, 43);
     color: white;
     text-decoration: none;
     padding: 10px 15px;
