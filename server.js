@@ -39,6 +39,12 @@ app.get("/kontakty",(req, res)=>{
 app.get("/jknamt",(req, res)=>{
     res.render("jknamt");
 })
+app.get("/cdotazy",(req, res)=>{
+    res.render("cdotazy");
+})
+app.get("/psycho",(req, res)=>{
+    res.render("psycho");
+})
 app.get("/swa",(req, res)=>{
     res.render("swa");
 })
