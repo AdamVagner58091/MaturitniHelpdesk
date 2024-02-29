@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forum</title>
+    <link rel="stylesheet" href="/forum.css">
+    <link rel="icon" type="image/jpeg" href="https://cdn.glitch.global/99ded2f5-70f6-473e-9ae1-c04ef66901dc/ikona.png?v=1708512114981">
+</head>
+<body>
+    <header>
+        <div class="header-napis">
+            <h2>Forum</h2>
+        </div>
+        <div class="header-button">
+            <a href="../index.html">Zpět na hlavní stránku</a>
+        </div>
+    </header>
+
+    <div class="background-container">
+        <div id="chat">
+            <div id="messages"></div>
+            <div id="input-container">
+                <input type="text" id="message" placeholder="Napiš svoji zprávu">
+                <button onclick="sendMessage()">Poslat</button>
+            </div>
+            <p id="status"></p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    
+    <footer>
+        <p>Simon Veselý, Adam Vágner - IT4B</p>
+    </footer>
+</body>
+</html>

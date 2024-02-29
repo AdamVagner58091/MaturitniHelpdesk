@@ -23,39 +23,35 @@ app.set("view engine","hbs")
 app.set("views",templatePath)
 app.use(express.urlencoded({extended:false}))
 
+
+// Routy :D
 app.get("/",(req, res)=>{
     res.render("login");
 })
-
 app.get("/signup",(req, res)=>{
     res.render("signup");
 })
-
 app.get("/kontakty",(req, res)=>{
     res.render("kontakty");
 })
-
 app.get("/swa",(req, res)=>{
     res.render("swa");
 })
-
-
 app.get("/home",(req, res)=>{
     res.render("home");
 })
-
 app.get("/prg",(req, res)=>{
     res.render("prg");
 })
-
 app.get("/pos",(req, res)=>{
     res.render("pos");
 })
-
 app.get("/pog",(req, res)=>{
     res.render("pog");
 })
-
+app.get("/forum",(req, res)=>{
+    res.render("forum");
+})
 app.post("/signup",async (req,res)=>{
 
     const data={
@@ -68,7 +64,6 @@ app.post("/signup",async (req,res)=>{
     res.render("home", { visitorCount: count });
 
 })
-
 app.post("/login",async (req,res)=>{
 
     try{
