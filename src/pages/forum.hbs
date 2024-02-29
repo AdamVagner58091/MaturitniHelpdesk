@@ -38,7 +38,7 @@
 });
 
 function getMessages() {
-    fetch("./get_messages.php", {
+    fetch("/get_messages.php", {
         method: "GET",
     })
         .then((response) => response.text())
