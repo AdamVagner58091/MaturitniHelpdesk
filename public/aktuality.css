@@ -1,0 +1,104 @@
+
+.aktuality-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 20px;
+}
+
+.aktualita {
+    width: 45%;
+    background-color: rgba(2, 1, 1, 0.774);
+    border: 1px solid rgb(0, 0, 0);
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+@font-face {
+    font-family: 'GothicFont';
+    src: url("https://cdn.glitch.global/99ded2f5-70f6-473e-9ae1-c04ef66901dc/GOTHIC.TTF?v=1708511916059") format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    background-color: #1e1e1e;
+    color: #fff;
+    font-family: 'GothicFont', Arial, sans-serif; /* Added custom font */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-image: url("https://cdn.glitch.global/99ded2f5-70f6-473e-9ae1-c04ef66901dc/main.jpg?v=1708512120963");
+    background-size: cover; /* Ensure the background image covers the entire page */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Add box-shadow for a subtle shadow effect */
+}
+
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #000;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    z-index: 2;
+}
+
+.header-napis h2 {
+    margin-left: 50px; /* Adjust the margin as needed */
+}
+
+.header-button {
+    margin-right: 20px; /* Případné přizpůsobení okraje */
+}
+
+.header-button a {
+    display: inline-block;
+    padding: 10px 20px;
+    text-decoration: none;
+    color: #fff;
+    background-color: #000;
+    border: 2px solid #fff;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.header-button a:hover {
+    background-color: #fff;
+    color: #000;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #000; /* Pure black footer */
+    color: #fff;
+    text-align: center;
+    padding: 2px; /* Reduced padding */
+}
+
+.button-container {
+    margin-top: 20px; /* Přidává mezery mezi aktuality a tlačítkem */
+}
+
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    text-decoration: none;
+    color: #fff;
+    background-color: rgba(2, 1, 1, 0.774);
+    border: 1px solid rgb(0, 0, 0);
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+}

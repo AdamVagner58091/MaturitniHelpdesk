@@ -23,13 +23,18 @@ app.set("view engine","hbs")
 app.set("views",templatePath)
 app.use(express.urlencoded({extended:false}))
 
-
-// Routy :D
+// Routy :D       , { visitorCount: count }
 app.get("/",(req, res)=>{
+    res.render("login");
+})
+app.get("/home", { visitorCount: count },(req, res)=>{
     res.render("login");
 })
 app.get("/signup",(req, res)=>{
     res.render("signup");
+})
+app.get("/aktulity",(req, res)=>{
+    res.render("aktuality");
 })
 app.get("/kontakty",(req, res)=>{
     res.render("kontakty");
