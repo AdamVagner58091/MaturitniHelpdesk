@@ -13,7 +13,7 @@
             <h2>Forum</h2>
         </div>
         <div class="header-button">
-            <a href="../index.html">Zpět na hlavní stránku</a>
+            <a href="/home">Zpět na hlavní stránku</a>
         </div>
     </header>
 
@@ -28,7 +28,97 @@
         </div>
     </div>
 
-    <script src="script.js"></script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function () {
+    // Fetch and display messages on page load
+    getMessages();
+
+    // Set up an interval to fetch and update messages every 5 seconds
+    setInterval(getMessages, 5000);
+});
+
+function getMessages() {
+    fetch("./get_messages.php", {
+        method: "GET",
+    })
+        .then((response) => response.text())
+        .then((messages) => {
+            // Display messages in the messages container
+            const messagesContainer = document.getElementById("messages");
+            messagesContainer.innerHTML = formatMessages(messages);
+        })
+        .catch((error) => console.error("Error fetching messages:", error));
+}
+
+function formatMessages(messages) {
+    // Split messages into an array
+    const messageArray = messages.split("\n");
+
+    // Format each message
+    const formattedMessages = messageArray.map((message) => {
+        if (message) {
+            const parts = message.split(':');
+            const username = parts[0];
+            const content = parts.slice(1).join(':'); // Join the remaining parts after the first colon
+            return `<strong>${username}:</strong> ${content}<br>`;
+        } else {
+            return "";
+        }
+    }).join("");
+
+    return formattedMessages;
+}
+
+
+function sendMessage() {
+    const messageInput = document.getElementById("message");
+    const message = messageInput.value.trim();
+
+    if (message === "") {
+        setStatus("Please enter a message.");
+        return;
+    }
+
+    // Prompt the user for their name
+    const userName = prompt("Please enter your name:");
+    if (!userName) {
+        setStatus("Name cannot be empty. Message not sent.");
+        return;
+    }
+
+    // Send the message with the user's name
+    fetch("send_message.php", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/x-www-form-urlencoded",
+        },
+        body: `user=${encodeURIComponent(userName)}&message=${encodeURIComponent(message)}`,
+    })
+        .then(() => {
+            // Fetch and display messages after sending
+            getMessages();
+            setStatus("");
+        })
+        .catch((error) => setStatus("Error sending message: " + error));
+}
+
+function setStatus(message) {
+    const statusElement = document.getElementById("status");
+    statusElement.textContent = message;
+}
+
+
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    var menuButton = document.getElementById("menuButton");
+    var menuPanel = document.getElementById("menuPanel");
+
+    menuButton.addEventListener("click", function () {
+        menuPanel.style.display = (menuPanel.style.display === "none" || menuPanel.style.display === "") ? "flex" : "none";
+    });
+});
+  </script>
     
     <footer>
         <p>Simon Veselý, Adam Vágner - IT4B</p>
