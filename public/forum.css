@@ -1,0 +1,152 @@
+@font-face {
+    font-family: 'GothicFont';
+    src: url("https://cdn.glitch.global/99ded2f5-70f6-473e-9ae1-c04ef66901dc/GOTHIC.TTF?v=1708511916059") format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body { 
+    background-color: #1e1e1e;
+    color: #fff; /*barva textu */
+    font-family: 'GothicFont', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-image: url("https://cdn.glitch.global/99ded2f5-70f6-473e-9ae1-c04ef66901dc/main.jpg?v=1708512120963");
+    background-size: cover;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #000;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    z-index: 2;
+}
+
+.header-napis h2 {
+    margin-left: 50px; /* Adjust the margin as needed */
+}
+
+.header-button {
+    margin-right: 20px; /* Případné přizpůsobení okraje */
+}
+
+.header-button a {
+    display: inline-block;
+    padding: 10px 20px;
+    text-decoration: none;
+    color: #fff;
+    background-color: #000;
+    border: 2px solid #fff;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.header-button a:hover {
+    background-color: #fff;
+    color: #000;
+}
+
+.button {
+    flex: 0 0 calc(50% - 20px);
+    padding: 15px 30px;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    color: #fff;
+    background-color: #222;
+    border: 2px solid #444;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, border-color 0.3s;
+    display: block; /* Přidáno pro zajištění, že tlačítko zabere celý dostupný prostor */
+    width: 100%; /* Přidáno pro zajištění, že tlačítko zabere celý dostupný prostor */
+}
+
+.button:hover {
+    background-color: #333;
+    border-color: #fff;
+    animation: rotateButton 5s linear infinite;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #000;
+    color: #fff;
+    text-align: center;
+    padding: 2px;
+}
+
+.background-container {
+    background-color: #111; /* Set the background color for the chat container */
+    padding: 20px; /* Adjust the padding as needed */
+    border-radius: 10px; /* Add border-radius for rounded corners */
+    margin: 20px; /* Add margin to separate the chat container from other elements */
+}
+
+#chat {
+    /* Add or modify styles for the chat content as needed */
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+#input-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: #111;
+    border-top: 2px solid #111;
+}
+
+#message {
+    flex: 1;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    font-weight: bold;
+    padding: 10px;
+    background-color: white;
+    color: black;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-left: 10px; 
+}
+
+button:hover {
+    background-color: #000000;
+    color: #ffffff; /* Bílý text */
+    animation: colorChange 5s linear forwards;
+}
+
+@keyframes colorChange {
+    0% {
+        background-color: #000000;
+        color: #ffffff;
+    }
+    100% {
+        background-color: #ffffff;
+        color: #000000; /* Černý text */
+    }
+}
