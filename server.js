@@ -23,27 +23,28 @@ app.set("view engine","hbs")
 app.set("views",templatePath)
 app.use(express.urlencoded({extended:false}))
 
-// Routy :D       , { visitorCount: count }
+// Routy :D 
 app.get("/",(req, res)=>{
-    res.render("login");
-})
-app.get("/home", { visitorCount: count },(req, res)=>{
     res.render("login");
 })
 app.get("/signup",(req, res)=>{
     res.render("signup");
 })
-app.get("/aktulity",(req, res)=>{
+app.get("/aktuality",(req, res)=>{
     res.render("aktuality");
 })
 app.get("/kontakty",(req, res)=>{
     res.render("kontakty");
 })
+app.get("/jknamt",(req, res)=>{
+    res.render("jknamt");
+})
 app.get("/swa",(req, res)=>{
     res.render("swa");
 })
 app.get("/home",(req, res)=>{
-    res.render("home");
+  const count = updateVisitorCount();
+    res.render("home", { visitorCount: count })
 })
 app.get("/prg",(req, res)=>{
     res.render("prg");
